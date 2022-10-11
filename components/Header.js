@@ -66,7 +66,9 @@ const Header = () => {
           alt="userImage"
           className="cursor-pointer rounded-full"
         />
-        <p className="font-semibold pr-3 whitespace-nowrap">Igor Hristov</p>
+        <p className="font-semibold pr-3 whitespace-nowrap">
+          {session.user.name}
+        </p>
         <Bars3Icon className="icon" />
         <ChatBubbleBottomCenterTextIcon className="icon" />
         <BellIcon className="icon" />
