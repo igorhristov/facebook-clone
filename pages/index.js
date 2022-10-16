@@ -5,9 +5,10 @@ import Header from "../components/Header";
 import Login from "../components/Login";
 import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
+import Widgets from "../components/Widgets";
 
 const Home = () => {
-   const { data: session } = useSession()
+  const { data: session } = useSession();
   if (!session) return <Login />;
 
   return (
@@ -19,10 +20,11 @@ const Home = () => {
       <Header />
       <main className="flex">
         {/* sidebar */}
-        <Sidebar/>
+        <Sidebar />
         {/* feed */}
-        <Feed/>
+        <Feed />
         {/* widgets */}
+        <Widgets />
       </main>
     </div>
   );
@@ -30,13 +32,19 @@ const Home = () => {
 
 export default Home;
 
-// export async function getServerSideProps(context) {
+// export async function getServerSideProps() {
 //   // get user
-//   const session = await getSession(context);
+//   const posts = await db.collection('posts').get()
+
+//   const docs = posts.docs.map(post=>({
+//     id: post.id,
+//     ...post.data(),
+//     timestamp: null
+//   }))
 
 //   return {
 //     props: {
-//       session,
+//       posts:docs
 //     },
 //   };
 // }
